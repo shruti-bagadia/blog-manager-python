@@ -17,7 +17,7 @@ from ..crud import (
 from ..auth import get_current_user
 from .websocket import manager
 
-router = APIRouter(prefix="/posts", tags=["posts"])
+router = APIRouter(prefix="/posts", tags=["Posts"])
 logger = logging.getLogger("app")
 
 

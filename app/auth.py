@@ -36,7 +36,7 @@ class TokenOut(BaseModel):
     token_type:   str
 
 # --- FastAPI router & security ---
-router  = APIRouter(tags=["auth"])
+router  = APIRouter(tags=["Auth"])
 bearer  = HTTPBearer()
 
 
