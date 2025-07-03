@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr, UUID4
+from typing import Optional
 
 class AuthorBase(BaseModel):
     name: str
@@ -12,3 +13,7 @@ class AuthorRead(AuthorBase):
 
     class Config:
         orm_mode = True
+
+class AuthorUpdate(BaseModel):
+    name: Optional[str] = None
+    email: Optional[EmailStr] = None

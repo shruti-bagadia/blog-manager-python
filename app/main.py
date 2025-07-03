@@ -5,6 +5,7 @@ from fastapi import FastAPI
 from app.models import Author, Post
 from .database import Base, SessionLocal, engine
 from .api.posts import router as post_router
+from .api.authors import router as author_router
 from .auth import router as auth_router
 from .api.websocket import router as ws_router
 from .constants import SHREYA_UUID, ADITI_UUID
@@ -52,7 +53,7 @@ def populate_sample_data():
     finally:
         db.close()
         
-# app.include_router(authors.router)
+app.include_router(author_router)
 app.include_router(post_router)
 app.include_router(auth_router)
 app.include_router(ws_router)

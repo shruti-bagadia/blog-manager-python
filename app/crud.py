@@ -18,6 +18,28 @@ def create_author(db: Session, author_in: author.AuthorCreate) -> models.Author:
     db.add(author); db.commit(); db.refresh(author)
     return author
 
+def get_authors(
+    db: Session,
+    skip: int = 0,
+    limit: int = 10
+) -> List[models.Author]:
+    return db.query(models.Author).offset(skip).limit(limit).all()
+
+def update_author(
+    db: Session,
+    author: models.Author,
+    update_in: author.AuthorUpdate
+) -> models.Author:
+    for field, value in update_in.dict(exclude_unset=True).items():
+        setattr(author, field, value)
+    db.commit()
+    db.refresh(author)
+    return author
+
+def delete_author(db: Session, author: models.Author) -> None:
+    db.delete(author)
+    db.commit()
+
 def get_post_by_uuid(db: Session, post_uuid: str) -> Optional[models.Post]:
     return (
         db.query(models.Post)
