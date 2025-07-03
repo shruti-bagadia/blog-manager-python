@@ -1,5 +1,5 @@
 # Blog Manager Python
-A simple FastAPI blog with UUIDs, auth, CRUD & filtering.
+A simple FastAPI blog manager with UUIDs, auth, CRUD & filtering.
 
 --------------Setup Guide ---------------
 1. Clone the repo and enter into it.
